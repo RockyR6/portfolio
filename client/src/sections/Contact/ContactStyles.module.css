@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Input and Textarea Fields */
+textarea,
+input:not([type="submit"]) {
+  height: 50px;
+  padding-left: 16px;
+  width: 250px;
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  border: 1px solid #888;
+  box-sizing: border-box;
+}
+
+/* Textarea Specific Styling */
+textarea {
+  padding-top: 16px;
+  resize: none;
+  height: 250px;
+}
+
+/* Placeholder Text */
+::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Button Styles */
+.btn {
+  border: none;
+  border-radius: 20px;
+  width: 126px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+  margin: auto;
+}
+
+
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (width >= 800px) {
+  textarea,
+  input:not([type="submit"]) {
+    width: 600px;
+    font-size: 20px;
+  }
+  form {
+    gap: 40px;
+  }
+}
+
+@media (width >= 1400px) {
+  textarea,
+  input:not([type="submit"]) {
+    width: 800px;
+  }
+}

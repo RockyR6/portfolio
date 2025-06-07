@@ -2,8 +2,8 @@ import styles from "./HeroStyles.module.css";
 import profileimg from "../../assets/profileImage.png";
 import sun from "../../assets/sun.svg"
 import moon from "../../assets/moon.svg"
-// import twitterLight from "../../assets/twitter-light.svg"
-// import twitterDark from "../../assets/twitter-dark.svg"
+import twitterLight from "../../assets/twitter-light.svg"
+import twitterDark from "../../assets/twitter-dark.svg"
 import githubLight from "../../assets/github-light.svg"
 import githubDark from "../../assets/github-dark.svg"
 import linkedinLight from "../../assets/linkedin-light.svg"
@@ -16,7 +16,7 @@ function Hero() {
     const { theme, toggleTheme} = useTheme();
 
     const themeIcon = theme === "light" ? sun: moon;
-    // const twitterIcon = theme === "light" ? twitterLight: twitterDark;
+    const twitterIcon = theme === "light" ? twitterLight: twitterDark;
     const githubIcon = theme === "light" ? githubLight: githubDark;
     const linkedinIcon = theme === "light" ? linkedinLight: linkedinDark;
   return (
@@ -36,9 +36,9 @@ function Hero() {
             <h1>Rocky <br />Roy</h1>
             <h2>Full Stack Developer</h2>
             <span class ="span">
-                {/* <a href="https://twitter.com" target="_blank">
+                <a href="https://x.com/RockyRoy96729" target="_blank">
                 <img src={twitterIcon} alt="twitter icon" />
-                </a> */}
+                </a>
                 <a href="https://github.com/RockyR6" target="_blank">
                 <img src={githubIcon} alt="github icon" />
                 </a>

@@ -7,6 +7,7 @@ import todoicon from '../../assets/todo.png.png';
 import ProjectCard from '../../common/ProjectCard';
 import logocart from '../../assets/LogoCart.png';
 import ChatIcon from '../../assets/chat_big.svg';
+import Zoom from '../../assets/zoom.png'
 import { motion } from "motion/react";
 
 
@@ -39,6 +40,12 @@ function Projects() {
           link="https://chat-app-five-flame.vercel.app/"
           h3="MeChat"
           p="Online Chatting"
+        />
+        <ProjectCard
+          src={Zoom}
+          link="https://room-video-calling-tawny.vercel.app"
+          h3="Room"
+          p="videoCalling"
         />
          <ProjectCard
           src={freshBurger}

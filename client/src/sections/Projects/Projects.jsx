@@ -8,6 +8,7 @@ import ProjectCard from '../../common/ProjectCard';
 import logocart from '../../assets/LogoCart.png';
 import ChatIcon from '../../assets/chat_big.svg';
 import Zoom from '../../assets/zoom.png'
+import connext from '../../assets/Connext.png'
 import { motion } from "motion/react";
 
 
@@ -46,6 +47,12 @@ function Projects() {
           link="https://room-video-calling-tawny.vercel.app"
           h3="Room"
           p="videoCalling"
+        />
+        <ProjectCard
+          src={connext}
+          link="https://connext-mu.vercel.app"
+          h3="Connext"
+          p="SocialMediaApp"
         />
          <ProjectCard
           src={freshBurger}

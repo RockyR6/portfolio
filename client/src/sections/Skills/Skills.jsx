@@ -33,6 +33,7 @@ function Skills() {
         <SkillList src={checkMarkIcon} skill="Git" />
         <SkillList src={checkMarkIcon} skill="ExpressJS" />
         <SkillList src={checkMarkIcon} skill="Prompt Engineering" />
+        <SkillList src={checkMarkIcon} skill="Inngest" />
        
        
       </div>

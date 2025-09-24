@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./ContactStyles.module.css";
 import { motion } from "motion/react";
-
 
 function Contact() {
   const [formData, setFormData] = useState({ 
@@ -17,8 +16,8 @@ function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (event) => {
+    event.preventDefault();
     setIsLoading(true);
 
     // Client-side validation
@@ -33,80 +32,43 @@ function Contact() {
       setIsLoading(false);
       return;
     }
-    
 
     try {
-      const response = await fetch("https://portfoliobackend-woad.vercel.app", {
+      const formDataToSend = new FormData(event.target);
+      formDataToSend.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          message: formData.message.trim()
-        }),
+        body: formDataToSend,
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
       const data = await response.json();
-      
+
       if (data.success) {
-        toast.success(data.message || "Message sent successfully!");
+        toast.success("Thank you for your submission!");
         setFormData({ name: "", email: "", message: "" });
       } else {
         toast.error(data.message || "Failed to send message");
       }
     } catch (error) {
-      console.error("Submission error:", error);
       toast.error(error.message || "Network error. Please try again later.");
     } finally {
       setIsLoading(false);
     }
   };
 
-  const onSubmit = async(event) => {
-         event.preventDefault();
-    try {
-        const formData = new FormData(event.target);
-    
-        formData.append("access_key", "d86839b4-c1ed-41fb-860f-7636b11afff8");
-    
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData
-        });
-    
-        const data = await response.json();
-    
-        if (data.success) {
-          toast.success('Thank you for your submission!')
-          event.target.reset();
-        } else {
-          console.log("Error", data);
-         toast.error(data.message)
-        }
-    } catch (error) {
-        toast.error(error.message)
-    }
-    }
-
   return (
-    <motion.section 
-    
-    initial={{opacity:0.2, y:50}}
-    transition={{duration:1.5}}
-    whileInView={{opacity:1, y:0}}
-    viewport={{once:true}}
-
-    id="contact" className={styles.container}>
+    <motion.section
+      initial={{ opacity: 0.2, y: 50 }}
+      transition={{ duration: 1.5 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      id="contact"
+      className={styles.container}
+    >
       <h1 className="sectionTitle">Contact</h1>
       <form onSubmit={onSubmit}>
         <div className="formGroup">
-          <label htmlFor="name" hidden>Name</label>
           <input
             type="text"
             name="name"
@@ -119,7 +81,6 @@ function Contact() {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="email" hidden>Email</label>
           <input
             type="email"
             name="email"
@@ -132,7 +93,6 @@ function Contact() {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="message" hidden>Message</label>
           <textarea
             name="message"
             id="message"
@@ -157,8 +117,7 @@ function Contact() {
           )}
         </button>
       </form>
-      
-      {/* Toast container - should be rendered once in your app (usually in App.js) */}
+
       <ToastContainer
         position="top-right"
         autoClose={5000}

@@ -21,6 +21,32 @@ function Contact() {
     e.preventDefault();
     setIsLoading(true);
 
+    const onSubmit = async(event) => {
+         event.preventDefault();
+    try {
+        const formData = new FormData(event.target);
+    
+        formData.append("access_key", "d86839b4-c1ed-41fb-860f-7636b11afff8");
+    
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+    
+        const data = await response.json();
+    
+        if (data.success) {
+          toast.success('Thank you for your submission!')
+          event.target.reset();
+        } else {
+          console.log("Error", data);
+         toast.error(data.message)
+        }
+    } catch (error) {
+        toast.error(error.message)
+    }
+    }
+
     // Client-side validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast.error("All fields are required");

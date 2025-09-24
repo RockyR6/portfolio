@@ -21,32 +21,6 @@ function Contact() {
     e.preventDefault();
     setIsLoading(true);
 
-    const onSubmit = async(event) => {
-         event.preventDefault();
-    try {
-        const formData = new FormData(event.target);
-    
-        formData.append("access_key", "d86839b4-c1ed-41fb-860f-7636b11afff8");
-    
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData
-        });
-    
-        const data = await response.json();
-    
-        if (data.success) {
-          toast.success('Thank you for your submission!')
-          event.target.reset();
-        } else {
-          console.log("Error", data);
-         toast.error(data.message)
-        }
-    } catch (error) {
-        toast.error(error.message)
-    }
-    }
-
     // Client-side validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast.error("All fields are required");
@@ -59,6 +33,7 @@ function Contact() {
       setIsLoading(false);
       return;
     }
+    
 
     try {
       const response = await fetch("https://portfoliobackend-woad.vercel.app", {
@@ -93,6 +68,32 @@ function Contact() {
     }
   };
 
+  const onSubmit = async(event) => {
+         event.preventDefault();
+    try {
+        const formData = new FormData(event.target);
+    
+        formData.append("access_key", "d86839b4-c1ed-41fb-860f-7636b11afff8");
+    
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+    
+        const data = await response.json();
+    
+        if (data.success) {
+          toast.success('Thank you for your submission!')
+          event.target.reset();
+        } else {
+          console.log("Error", data);
+         toast.error(data.message)
+        }
+    } catch (error) {
+        toast.error(error.message)
+    }
+    }
+
   return (
     <motion.section 
     
@@ -103,7 +104,7 @@ function Contact() {
 
     id="contact" className={styles.container}>
       <h1 className="sectionTitle">Contact</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onSubmit}>
         <div className="formGroup">
           <label htmlFor="name" hidden>Name</label>
           <input

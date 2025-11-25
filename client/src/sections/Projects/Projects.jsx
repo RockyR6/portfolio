@@ -5,8 +5,10 @@ import viberr from '../../assets/viberr.png';
 import genImg from '../../assets/camera.png';
 import todoicon from '../../assets/todo.png.png';
 import ProjectCard from '../../common/ProjectCard';
-import logocart from '../../assets/LogoCart.png';
+import logocart from '../../assets/logocart.png';
 import ChatIcon from '../../assets/chat_big.svg';
+import k72 from '../../assets/k72.svg';
+import booknest from '../../assets/booknest.jpg';
 import Zoom from '../../assets/zoom.png'
 import connext from '../../assets/Connext.png'
 import { motion } from "motion/react";
@@ -24,6 +26,18 @@ function Projects() {
     id="projects" className={styles.container}>
       <h1 className="sectionTitle">Projects</h1>
       <div className={styles.projectsContainer}>
+        <ProjectCard
+          src={k72}
+          link="https://k72-jade.vercel.app"
+          h3="K72"
+          p="Creative Agency"
+        />
+        <ProjectCard
+          src={booknest}
+          link="https://book-nest-client-nine.vercel.app/"
+          h3="BookNest"
+          p="Hotel Booking"
+        />
          <ProjectCard
           src={logocart}
           link="https://logo-cart.vercel.app/"

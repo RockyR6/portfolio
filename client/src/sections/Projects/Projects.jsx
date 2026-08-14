@@ -5,7 +5,7 @@ import viberr from '../../assets/viberr.png';
 import genImg from '../../assets/camera.png';
 import todoicon from '../../assets/todo.png.png';
 import ProjectCard from '../../common/ProjectCard';
-import logocart from '../../assets/logocart.png';
+import logocart from '../../assets/logoCart.png';
 import ChatIcon from '../../assets/chat_big.svg';
 import k72 from '../../assets/k72.svg';
 import booknest from '../../assets/booknest.jpg';

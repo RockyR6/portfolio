@@ -11,6 +11,7 @@ import k72 from '../../assets/k72.svg';
 import booknest from '../../assets/booknest.jpg';
 import Zoom from '../../assets/zoom.png'
 import connext from '../../assets/Connext.png'
+import genAiImgIcon from '../../assets/gen-ai.png'
 import { motion } from "motion/react";
 
 
@@ -63,6 +64,12 @@ function Projects() {
           p="videoCalling"
         />
         <ProjectCard
+          src={genAiImgIcon}
+          link="https://interview-prep-client-five.vercel.app"
+          h3="AI-Interview-prep"
+          p="Gen-Ai"
+        />
+        <ProjectCard
           src={connext}
           link="https://connext-mu.vercel.app"
           h3="Connext"
@@ -76,13 +83,13 @@ function Projects() {
         />
         <ProjectCard
           src={viberr}
-          link="https://genimage-beta.vercel.app/"
+          link="https://instagramclone-tdhc.onrender.com"
           h3="InstagramClone"
           p="Connect with your friends"
         />
          <ProjectCard
           src={genImg}
-          link="https://instagramclone-tdhc.onrender.com"
+          link="https://genimage-beta.vercel.app/"
           h3="AI Image Generator"
           p="Connect with your friends"
         />
